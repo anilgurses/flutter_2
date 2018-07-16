@@ -1,4 +1,4 @@
-## flutter_app
+## Flutter App N.1 
 
 A new Flutter application which is created for my Flutter learning path.
 
