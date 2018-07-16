@@ -1,8 +1,7 @@
-# flutter_app
+## flutter_app
 
-A new Flutter application.
+A new Flutter application which is created for my Flutter learning path.
 
-## Getting Started
+#First app of mine in dart language using flutter framework
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+![Flutter](https://cdn-images-1.medium.com/max/1600/1*K0Hq-0HWIb2fKPe3u5rtaQ.png)
