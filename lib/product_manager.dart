@@ -6,7 +6,7 @@ class ProductManager extends StatefulWidget {
   String startingProduct;
 
   ProductManager(this.startingProduct){
-    print("[Products Widget Constructor]")
+    print("[Products Widget Constructor]");
   }
 
   @override
