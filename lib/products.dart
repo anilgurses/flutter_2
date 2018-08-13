@@ -16,12 +16,20 @@ class Products extends StatelessWidget {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return ListView.builder(
+
+    Widget productCard = Center(child: Text("No products found"));
+    
+    if (products.length > 0){
+        productCard = ListView.builder(
         itemBuilder: _buildProductItem,
         itemCount: products.length,
-        );
+        ); 
+    }
+
+    return  productCard; 
   }
 }
