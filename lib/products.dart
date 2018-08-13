@@ -1,35 +1,57 @@
 import 'package:flutter/material.dart';
+import './pages/product.dart';
 
 class Products extends StatelessWidget {
-  final List<String> products;
+  final List<Map<String, String>> products;
+  final Function deleteProduct;
 
-  Products([this.products = const[]]);
+  Products(this.products, {this.deleteProduct});
 
-  Widget _buildProductItem(BuildContext context,int index){
+  Widget _buildProductItem(BuildContext context, int index) {
     return Card(
-                 child: Column(
-                    children: <Widget>[
-                      Image.asset('assets/food.jpg'),
-                      Text(products[index])
-                    ],
-                  ),
+      child: Column(
+        children: <Widget>[
+          Image.asset(products[index]['image']),
+          Text(products[index]['title']),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                child: Text("Details"),
+                onPressed: () => Navigator
+                    .push<bool>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => ProductPage(
+                            products[index]['title'], products[index]['image']),
+                      ),
+                    )
+                    .then((bool value) {
+                      if(value){
+                        deleteProduct(index);
+                      }
+                    }),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
-
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
 
     Widget productCard = Center(child: Text("No products found"));
-    
-    if (products.length > 0){
-        productCard = ListView.builder(
+
+    if (products.length > 0) {
+      productCard = ListView.builder(
         itemBuilder: _buildProductItem,
         itemCount: products.length,
-        ); 
+      );
     }
 
-    return  productCard; 
+    return productCard;
   }
 }
